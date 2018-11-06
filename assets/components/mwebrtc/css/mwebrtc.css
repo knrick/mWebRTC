@@ -1,0 +1,138 @@
+ body{
+  background:lightblue;
+  text-align:center;
+  box-sizing:border-box;
+  font-family:"Lato",Sans-serif;
+/*   position:relative; */
+}
+
+/*button style*/
+.w-50p {
+        width: 50px;
+}
+
+.boxmWebRTC{
+  position: fixed;
+  top: 90%;
+  left: 90%;
+  transform : translate(-80% ,-50%);
+}
+
+.btn:link,
+.btn:visited{
+  text-decoration: none;
+  text-transform:uppercase;
+  position:relative;
+  top:0;
+  left:0;
+  padding: 15px 20px;
+  border-radius:100px;
+  display:inline-block;
+  transition: all .5s;
+}
+
+.btn-white{
+  background:#fff;
+  color:#000;
+}
+
+.btn:hover{
+   box-shadow:0px 10px 10px rgba(0,0,0,0.2);
+   transform : translateY(-3px);
+}
+
+.btn:active{
+  box-shadow:0px 5px 10px rgba(0,0,0,0.2);
+  transform:translateY(-1px);
+}
+
+.btn-bottom-animation-1{
+  animation:comeFromBottom 1s ease-out .8s;
+}
+
+.btn::after{
+  content:"";
+  text-decoration: none;
+  text-transform:uppercase;
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  left:0;
+  border-radius:100px;
+  display:inline-block;
+  z-index:-1;
+  transition: all .5s;
+}
+
+.btn-white::after {
+    background: #fff;
+}
+
+.btn-danger::after {
+    background: #dc3545;
+}
+
+.btn-outline-primary::after {
+    
+}
+
+.btn-animation-1:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+@keyframes comeFromBottom{
+  0%{
+    opacity:0;
+    transform:translateY(40px);
+  } 
+  100%{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+
+/*popup style*/
+.popover-example {
+  margin: 0 0 10px;
+  list-style: none;
+}
+
+.popover-example li {
+  display: inline-block;
+  margin: 4px;
+  padding: 0px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.rtsBtn .btn {
+  margin: 4px 8px 4px 0;
+
+}
+
+.rtsBtn .modal{
+ 
+}
+
+.rtsBtn .modal-dialog{
+     min-width: 400px;
+}
+
+.clickRtc {
+    display:none;
+}
+
+.rtcCams video{
+    max-width: 450px;
+}
+
+.rtcTable {
+    max-height: 200px ;
+    overflow: auto;
+    display: block;
+}

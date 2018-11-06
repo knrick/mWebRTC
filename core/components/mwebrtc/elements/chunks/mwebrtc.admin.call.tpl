@@ -1,0 +1,2 @@
+<button type="button" class="btn btn-danger" id="hangup">hangup</button> <!-- by default this button ends call -->
+<div class="rtcCams" id="videos_container"></div><!-- by default a webcam video is put inside this tag -->

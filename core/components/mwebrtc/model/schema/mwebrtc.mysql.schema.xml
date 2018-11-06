@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="mwebrtc" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.1">
+	<object class="WebrtcChat" table="mwebrtc_chat" extends="xPDOSimpleObject">
+		<field key="datetime" dbtype="timestamp" phptype="timestamp" null="false" default="CURRENT_TIMESTAMP" />
+		<field key="sender_id" dbtype="int" precision="11" phptype="integer" null="true" />
+		<field key="receiver_id" dbtype="int" precision="11" phptype="integer" null="true" />
+		<field key="message" dbtype="text" phptype="string" null="true" />
+		<field key="from_admin" dbtype="tinyint" precision="1" phptype="integer" null="true" />
+	</object>
+	<object class="WebrtcQueue" table="mwebrtc_queue" extends="xPDOSimpleObject">
+		<field key="client_name" dbtype="varchar" precision="255" phptype="string" null="true" />
+		<field key="session_id" dbtype="varchar" precision="191" phptype="string" null="true" />
+		<field key="endpoint" dbtype="text" phptype="string" null="true" />
+		<field key="admin_id" dbtype="varchar" precision="255" phptype="string" null="true" />
+		<field key="start_datetime" dbtype="timestamp" phptype="timestamp" null="true" default="CURRENT_TIMESTAMP" />
+		<field key="end_datetime" dbtype="timestamp" phptype="timestamp" null="true" />
+		<field key="phone_number" dbtype="varchar" precision="11" phptype="string" null="true" />
+		<field key="message" dbtype="text" phptype="string" null="true" />
+	</object>
+	<object class="WebrtcRoom" table="mwebrtc_room" extends="xPDOSimpleObject">
+		<field key="admin_id" dbtype="varchar" precision="255" phptype="string" null="true" />
+		<field key="admin_device" dbtype="varchar" precision="255" phptype="string" null="true" />
+		<field key="client_name" dbtype="varchar" precision="255" phptype="string" null="true" />
+		<field key="start_datetime" dbtype="timestamp" phptype="timestamp" null="false" default="CURRENT_TIMESTAMP" />
+		<field key="end_datetime" dbtype="timestamp" phptype="timestamp" null="true" />
+		<field key="client_device" dbtype="varchar" precision="255" phptype="string" null="true" />
+		<field key="room_id" dbtype="varchar" precision="30" phptype="string" null="true" />
+		<field key="client_id" dbtype="varchar" precision="255" phptype="string" null="true" />
+		<field key="admin_sdp" dbtype="text" phptype="string" null="true" />
+		<field key="client_sdp" dbtype="text" phptype="string" null="true" />
+	</object>
+	<object class="WebrtcSubscription" table="mwebrtc_subscription" extends="xPDOSimpleObject">
+		<field key="endpoint" dbtype="text" phptype="string" null="true" />
+		<field key="admin_id" dbtype="varchar" precision="255" phptype="string" null="true" />
+	</object>
+</model>
