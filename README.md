@@ -47,7 +47,7 @@ On admin page add `[[!mwebrtcAdmin? &icon='assets/images/RTCICON1.png']]`
 
 * **Admin and Client URLs** - When users will click on notifications they will be redirected to their corresponding links. You can enter either URLs or ids of modx documents. These settings are optional.
 
-* **VAPID public and private keys** - WebPush uses VAPID standard to restrict the validity of a subscription to a specific application server (so, by using VAPID, only your server will be able to send notifications to a subscriber). So I highly recommend to generate your own VAPID keys. You can do it [here][2] or by using this php script:
+* **VAPID public and private keys** - WebPush uses VAPID standard to restrict the validity of a subscription to a specific application server (so, by using VAPID, only your server will be able to send notifications to a subscriber). So I highly recommend generating your own VAPID keys. You can do it [here][2] or by using this PHP script:
 ```
 require_once MODX_CORE_PATH.'components/mwebrtc/web_push/vendor/autoload.php';
 use Minishlink\WebPush\VAPID;
@@ -68,13 +68,13 @@ var_dump(VAPID::createVapidKeys());
 ## Usage
 
 1. As an admin subscribe to push notifications on admin page by clicking *subscribe* button. If the browser asks for push-notification permissions, accept. You need to do it only once.
-2. As a client click *open_room* button on client page to join the waiting queue. Again, if You are asked for the permissions, accept them.
+2. As a client clicks *open_room* button on a client page to join the waiting queue. Again, if You are asked for the permissions, accept them.
 3. When a client joins the queue all browsers subscribed to push will get a notification. You should click or close the notification in less than a minute or else the admins will be considered offline and the client will be kicked out of the queue and will be asked to leave a callback message.
 4. At this moment client and admin will be able to communicate via a simple built-in chat.
-5. To create a WebRTC room and invite a client to videocall click a *call_button* button near the client's name. The browser will ask for Camera and Microphone permissions. Then after couple seconds the client will get an invite notification.
-6. After client gets an notification, *call* button will pop up on his page. After clicking it the browser will ask for camera and microphone access. Then begins the connection.
+5. To create a WebRTC room and invite a client to video call click a *call_button* button near the client's name. The browser will ask for Camera and Microphone permissions. Then after a couple seconds, the client will get an invite notification.
+6. After client gets a notification, *call* button will pop up on his page. After clicking it the browser will ask for camera and microphone access. Then begins the connection.
 7. A connection should take a few seconds. When admin and client are connected they can see each other's camera and talk to each other via their microphones. Each one can disconnect by clicking *hangup* button.
-8. A client can connect back after disconnecting. But when An admin does it, the room closes.
+8. A client can connect back after disconnecting. But when an admin does it, the room closes.
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/WorkerGlobalScope/importScripts
 [2]: https://tools.reactpwa.com/vapid
