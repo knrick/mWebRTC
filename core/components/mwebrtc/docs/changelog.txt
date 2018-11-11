@@ -3,3 +3,7 @@ Changelog for mWebRTC.
 1.0.0-pl
 ==============
 - Initial release.
+
+1.0.1-pl
+==============
+- Fixed tables search

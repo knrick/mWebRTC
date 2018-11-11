@@ -38,8 +38,11 @@ class mWebRTCQueueGetListProcessor extends modObjectGetListProcessor
         $query = trim($this->getProperty('query'));
         if ($query) {
             $c->where([
-                'name:LIKE' => "%{$query}%",
-                'OR:description:LIKE' => "%{$query}%",
+                
+                'client_name' => "{$query}",
+                'OR:User.username:=' => "{$query}",
+                'OR:session_id:=' => "{$query}",
+                'OR:phone_number:=' => "{$query}",
             ]);
         }
 
@@ -67,28 +70,6 @@ class mWebRTCQueueGetListProcessor extends modObjectGetListProcessor
             'button' => true,
             'menu' => true,
         ];
-
-        if (!$array['active']) {
-            $array['actions'][] = [
-                'cls' => '',
-                'icon' => 'icon icon-power-off action-green',
-                'title' => $this->modx->lexicon('mwebrtc_queue_enable'),
-                'multiple' => $this->modx->lexicon('mwebrtc_queues_enable'),
-                'action' => 'enableQueue',
-                'button' => true,
-                'menu' => true,
-            ];
-        } else {
-            $array['actions'][] = [
-                'cls' => '',
-                'icon' => 'icon icon-power-off action-gray',
-                'title' => $this->modx->lexicon('mwebrtc_queue_disable'),
-                'multiple' => $this->modx->lexicon('mwebrtc_queues_disable'),
-                'action' => 'disableQueue',
-                'button' => true,
-                'menu' => true,
-            ];
-        }
 
         // Remove
         $array['actions'][] = [

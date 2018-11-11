@@ -30,17 +30,10 @@ class mWebRTCRoomUpdateProcessor extends modObjectUpdateProcessor
     public function beforeSet()
     {
         $id = (int)$this->getProperty('id');
-        $name = trim($this->getProperty('name'));
         if (empty($id)) {
             return $this->modx->lexicon('mwebrtc_room_err_ns');
         }
-
-        if (empty($name)) {
-            $this->modx->error->addField('name', $this->modx->lexicon('mwebrtc_room_err_name'));
-        } elseif ($this->modx->getCount($this->classKey, ['name' => $name, 'id:!=' => $id])) {
-            $this->modx->error->addField('name', $this->modx->lexicon('mwebrtc_room_err_ae'));
-        }
-
+        
         return parent::beforeSet();
     }
 }

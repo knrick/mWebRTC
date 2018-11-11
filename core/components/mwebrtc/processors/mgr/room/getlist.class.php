@@ -39,8 +39,9 @@ class mWebRTCRoomGetListProcessor extends modObjectGetListProcessor
         $query = trim($this->getProperty('query'));
         if ($query) {
             $c->where([
-                'name:LIKE' => "%{$query}%",
-                'OR:description:LIKE' => "%{$query}%",
+                'client_id' => "{$query}",
+                'OR:WebrtcQueue.client_name:=' => "{$query}",
+                'OR:User.username:=' => "{$query}",
             ]);
         }
 
@@ -68,28 +69,6 @@ class mWebRTCRoomGetListProcessor extends modObjectGetListProcessor
             'button' => true,
             'menu' => true,
         ];
-
-        if (!$array['active']) {
-            $array['actions'][] = [
-                'cls' => '',
-                'icon' => 'icon icon-power-off action-green',
-                'title' => $this->modx->lexicon('mwebrtc_room_enable'),
-                'multiple' => $this->modx->lexicon('mwebrtc_rooms_enable'),
-                'action' => 'enableRoom',
-                'button' => true,
-                'menu' => true,
-            ];
-        } else {
-            $array['actions'][] = [
-                'cls' => '',
-                'icon' => 'icon icon-power-off action-gray',
-                'title' => $this->modx->lexicon('mwebrtc_room_disable'),
-                'multiple' => $this->modx->lexicon('mwebrtc_rooms_disable'),
-                'action' => 'disableRoomm',
-                'button' => true,
-                'menu' => true,
-            ];
-        }
 
         // Remove
         $array['actions'][] = [
